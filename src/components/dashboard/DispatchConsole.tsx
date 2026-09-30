@@ -201,7 +201,7 @@ export function DispatchConsole() {
                   <Users className="w-4 h-4 text-rose-600" /> Target Inundated Wards
                 </h3>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  Villages with elevation &lt; inland surge height ({floodedVillages.length} active)
+                  Villages intersecting modeled inundation ({floodedVillages.length} flagged)
                 </p>
               </div>
               <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 font-bold border border-rose-200">
@@ -253,7 +253,7 @@ export function DispatchConsole() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="font-bold text-[#0A0A0A] text-base">Vernacular SMS & Radio Broadcast Draft</h3>
-                <p className="text-xs text-slate-600 mt-0.5">Live interpolated emergency alert text</p>
+                <p className="text-xs text-slate-600 mt-0.5">Scenario-derived emergency alert draft</p>
               </div>
 
               {/* Language Selector */}

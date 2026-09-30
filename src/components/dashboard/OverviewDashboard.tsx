@@ -200,17 +200,17 @@ export function OverviewDashboard() {
         {/* Card 3: Emergency Centers & Risk (GREEN IF SAFE, RED IF HAZARD) */}
         <div
           className={`border rounded-3xl p-6 shadow-xs flex flex-col justify-between transition-all hover:scale-[1.01] ${
-            isHazardous && totalBreaches > 0
+            totalBreaches > 0
               ? "bg-rose-50 border-rose-200 text-rose-950"
               : "bg-[#DCFCE7] border-[#86EFAC] text-[#14532D]"
           }`}
         >
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold uppercase tracking-wider font-mono">
-              {totalBreaches > 0 ? "Infrastructure Risk" : "Modeled Breaches"}
+              Dana Benchmark Breaches
             </span>
             <div className="w-9 h-9 rounded-2xl bg-[#FAF7F0] flex items-center justify-center border border-[#383838]/20">
-              <ShieldCheck className="w-4 h-4 text-emerald-700" />
+              {totalBreaches > 0 ? <AlertTriangle className="w-4 h-4 text-rose-700" /> : <ShieldCheck className="w-4 h-4 text-emerald-700" />}
             </div>
           </div>
           <div>
