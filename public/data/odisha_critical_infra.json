@@ -1,0 +1,131 @@
+[
+  {
+    "id": "HOSP-01",
+    "osm_id": 10492811,
+    "name": "Paradip Port Sub-Divisional Hospital",
+    "category": "HOSPITAL",
+    "latitude": 20.2961,
+    "longitude": 86.6745,
+    "ground_elevation_msl": 1.6,
+    "distance_to_coast_km": 0.4,
+    "critical_specs": {
+      "plinth_height_meters": 0.4,
+      "backup_power_type": "GROUND_DG",
+      "backup_power_elevation": 0.8,
+      "service_population_capacity": 350
+    }
+  },
+  {
+    "id": "HOSP-02",
+    "osm_id": 10492812,
+    "name": "Biju Memorial Community Health Centre",
+    "category": "HOSPITAL",
+    "latitude": 20.3120,
+    "longitude": 86.6210,
+    "ground_elevation_msl": 2.4,
+    "distance_to_coast_km": 4.2,
+    "critical_specs": {
+      "plinth_height_meters": 0.6,
+      "backup_power_type": "ROOF_DG",
+      "backup_power_elevation": 4.5,
+      "service_population_capacity": 180
+    }
+  },
+  {
+    "id": "SUB-01",
+    "osm_id": 20581921,
+    "name": "132/33kV Paradip Grid Substation (OPTCL)",
+    "category": "SUBSTATION",
+    "latitude": 20.2810,
+    "longitude": 86.6450,
+    "ground_elevation_msl": 1.8,
+    "distance_to_coast_km": 2.8,
+    "critical_specs": {
+      "plinth_height_meters": 0.5,
+      "backup_power_type": "GROUND_DG",
+      "backup_power_elevation": 0.5,
+      "voltage_kv": 132
+    }
+  },
+  {
+    "id": "SUB-02",
+    "osm_id": 20581922,
+    "name": "33/11kV Kujang Inland Substation",
+    "category": "SUBSTATION",
+    "latitude": 20.3340,
+    "longitude": 86.5380,
+    "ground_elevation_msl": 4.2,
+    "distance_to_coast_km": 12.5,
+    "critical_specs": {
+      "plinth_height_meters": 0.8,
+      "backup_power_type": "GROUND_DG",
+      "backup_power_elevation": 0.8,
+      "voltage_kv": 33
+    }
+  },
+  {
+    "id": "TOW-01",
+    "osm_id": 30918231,
+    "name": "Paradip Coastal Lighthouse Telecom Tower",
+    "category": "CELL_TOWER",
+    "latitude": 20.2625,
+    "longitude": 86.7020,
+    "ground_elevation_msl": 2.1,
+    "distance_to_coast_km": 0.3,
+    "critical_specs": {
+      "plinth_height_meters": 1.0,
+      "backup_power_type": "GROUND_DG",
+      "backup_power_elevation": 1.0,
+      "mast_height_meters": 45,
+      "battery_reserve_hours": 4.5
+    }
+  },
+  {
+    "id": "TOW-02",
+    "osm_id": 30918232,
+    "name": "Kendrapara Rural BTS Hub",
+    "category": "CELL_TOWER",
+    "latitude": 20.4980,
+    "longitude": 86.4210,
+    "ground_elevation_msl": 5.1,
+    "distance_to_coast_km": 16.0,
+    "critical_specs": {
+      "plinth_height_meters": 0.6,
+      "backup_power_type": "SOLAR_BATTERY",
+      "backup_power_elevation": 2.0,
+      "mast_height_meters": 35,
+      "battery_reserve_hours": 6.0
+    }
+  },
+  {
+    "id": "BRG-01",
+    "osm_id": 40918201,
+    "name": "Mahanadi Coastal Estuary Bridge",
+    "category": "BRIDGE",
+    "latitude": 20.2980,
+    "longitude": 86.6620,
+    "ground_elevation_msl": 2.0,
+    "distance_to_coast_km": 1.2,
+    "critical_specs": {
+      "plinth_height_meters": 0.0,
+      "backup_power_type": "GROUND_DG",
+      "backup_power_elevation": 0.0
+    }
+  },
+  {
+    "id": "SHEL-01",
+    "osm_id": 50918201,
+    "name": "Kujang Multi-Purpose Cyclone Shelter",
+    "category": "SHELTER",
+    "latitude": 20.3390,
+    "longitude": 86.5310,
+    "ground_elevation_msl": 6.5,
+    "distance_to_coast_km": 14.0,
+    "critical_specs": {
+      "plinth_height_meters": 1.5,
+      "backup_power_type": "ROOF_DG",
+      "backup_power_elevation": 5.0,
+      "service_population_capacity": 2000
+    }
+  }
+]

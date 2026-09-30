@@ -1,0 +1,138 @@
+[
+  {
+    "time_step": "T-24h",
+    "step_index": 0,
+    "timestamp_utc": "2024-10-24T00:00:00Z",
+    "latitude": 17.80,
+    "longitude": 88.50,
+    "central_pressure_hpa": 988,
+    "max_sustained_wind_kmh": 85,
+    "gust_wind_kmh": 105,
+    "storm_category": 1,
+    "wind_radii": {
+      "gale_34kt_radius_km": 160,
+      "storm_50kt_radius_km": 70,
+      "hurricane_64kt_radius_km": 0
+    },
+    "projected_surge_peak_meters": 0.5
+  },
+  {
+    "time_step": "T-18h",
+    "step_index": 1,
+    "timestamp_utc": "2024-10-24T06:00:00Z",
+    "latitude": 18.50,
+    "longitude": 88.00,
+    "central_pressure_hpa": 978,
+    "max_sustained_wind_kmh": 105,
+    "gust_wind_kmh": 125,
+    "storm_category": 2,
+    "wind_radii": {
+      "gale_34kt_radius_km": 190,
+      "storm_50kt_radius_km": 95,
+      "hurricane_64kt_radius_km": 40
+    },
+    "projected_surge_peak_meters": 1.1
+  },
+  {
+    "time_step": "T-12h",
+    "step_index": 2,
+    "timestamp_utc": "2024-10-24T12:00:00Z",
+    "latitude": 19.30,
+    "longitude": 87.50,
+    "central_pressure_hpa": 968,
+    "max_sustained_wind_kmh": 125,
+    "gust_wind_kmh": 145,
+    "storm_category": 3,
+    "wind_radii": {
+      "gale_34kt_radius_km": 210,
+      "storm_50kt_radius_km": 115,
+      "hurricane_64kt_radius_km": 60
+    },
+    "projected_surge_peak_meters": 1.8
+  },
+  {
+    "time_step": "T-06h",
+    "step_index": 3,
+    "timestamp_utc": "2024-10-24T18:00:00Z",
+    "latitude": 19.90,
+    "longitude": 87.10,
+    "central_pressure_hpa": 956,
+    "max_sustained_wind_kmh": 145,
+    "gust_wind_kmh": 165,
+    "storm_category": 3,
+    "wind_radii": {
+      "gale_34kt_radius_km": 240,
+      "storm_50kt_radius_km": 130,
+      "hurricane_64kt_radius_km": 75
+    },
+    "projected_surge_peak_meters": 2.4
+  },
+  {
+    "time_step": "T-03h",
+    "step_index": 4,
+    "timestamp_utc": "2024-10-24T21:00:00Z",
+    "latitude": 20.25,
+    "longitude": 86.85,
+    "central_pressure_hpa": 948,
+    "max_sustained_wind_kmh": 160,
+    "gust_wind_kmh": 180,
+    "storm_category": 4,
+    "wind_radii": {
+      "gale_34kt_radius_km": 260,
+      "storm_50kt_radius_km": 145,
+      "hurricane_64kt_radius_km": 85
+    },
+    "projected_surge_peak_meters": 2.9
+  },
+  {
+    "time_step": "T-0h",
+    "step_index": 5,
+    "timestamp_utc": "2024-10-25T00:00:00Z",
+    "latitude": 20.35,
+    "longitude": 86.68,
+    "central_pressure_hpa": 942,
+    "max_sustained_wind_kmh": 165,
+    "gust_wind_kmh": 185,
+    "storm_category": 4,
+    "wind_radii": {
+      "gale_34kt_radius_km": 270,
+      "storm_50kt_radius_km": 150,
+      "hurricane_64kt_radius_km": 90
+    },
+    "projected_surge_peak_meters": 3.2
+  },
+  {
+    "time_step": "T+03h",
+    "step_index": 6,
+    "timestamp_utc": "2024-10-25T03:00:00Z",
+    "latitude": 20.65,
+    "longitude": 86.40,
+    "central_pressure_hpa": 962,
+    "max_sustained_wind_kmh": 130,
+    "gust_wind_kmh": 150,
+    "storm_category": 3,
+    "wind_radii": {
+      "gale_34kt_radius_km": 220,
+      "storm_50kt_radius_km": 120,
+      "hurricane_64kt_radius_km": 50
+    },
+    "projected_surge_peak_meters": 2.1
+  },
+  {
+    "time_step": "T+06h",
+    "step_index": 7,
+    "timestamp_utc": "2024-10-25T06:00:00Z",
+    "latitude": 21.00,
+    "longitude": 86.10,
+    "central_pressure_hpa": 980,
+    "max_sustained_wind_kmh": 95,
+    "gust_wind_kmh": 115,
+    "storm_category": 1,
+    "wind_radii": {
+      "gale_34kt_radius_km": 170,
+      "storm_50kt_radius_km": 60,
+      "hurricane_64kt_radius_km": 0
+    },
+    "projected_surge_peak_meters": 1.2
+  }
+]

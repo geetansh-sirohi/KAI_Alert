@@ -1,0 +1,138 @@
+{
+  "corridor_id": "ODISHA-COASTAL-SECTOR-04",
+  "name": "Paradip Coastal Evacuation Network",
+  "origin_node": "NODE-PARADIP-PORT",
+  "destination_node": "NODE-SHELTER-RAHDAMA",
+  "nodes": [
+    {
+      "id": "NODE-PARADIP-PORT",
+      "name": "Paradip Port Civilian Settlement",
+      "latitude": 20.2920,
+      "longitude": 86.6680,
+      "elevation_meters": 1.2
+    },
+    {
+      "id": "NODE-ESTUARY-APPROACH",
+      "name": "Mahanadi Estuary North Approach",
+      "latitude": 20.2970,
+      "longitude": 86.6630,
+      "elevation_meters": 1.5
+    },
+    {
+      "id": "NODE-ESTUARY-SOUTH",
+      "name": "Mahanadi Estuary South Junction",
+      "latitude": 20.2990,
+      "longitude": 86.6610,
+      "elevation_meters": 1.8
+    },
+    {
+      "id": "NODE-ERASAMA-BYPASS",
+      "name": "Erasama Inland Agricultural Junction",
+      "latitude": 20.2450,
+      "longitude": 86.6020,
+      "elevation_meters": 4.8
+    },
+    {
+      "id": "NODE-KUJANG-CHHAK",
+      "name": "Kujang National Highway Link",
+      "latitude": 20.2710,
+      "longitude": 86.5380,
+      "elevation_meters": 5.2
+    },
+    {
+      "id": "NODE-SHELTER-RAHDAMA",
+      "name": "Rahdama Multi-Purpose Cyclone Shelter",
+      "latitude": 20.2780,
+      "longitude": 86.6410,
+      "elevation_meters": 5.8
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE-COASTAL-01",
+      "name": "Port Access Road to Estuary",
+      "source_node": "NODE-PARADIP-PORT",
+      "target_node": "NODE-ESTUARY-APPROACH",
+      "length_km": 1.8,
+      "min_elevation_meters": 1.2,
+      "capacity_vehicles_per_hour": 900,
+      "is_bridge": false,
+      "coordinates": [[86.6680, 20.2920], [86.6650, 20.2950], [86.6630, 20.2970]]
+    },
+    {
+      "id": "BRG-01",
+      "name": "Mahanadi Coastal Estuary Bridge",
+      "source_node": "NODE-ESTUARY-APPROACH",
+      "target_node": "NODE-ESTUARY-SOUTH",
+      "length_km": 0.9,
+      "min_elevation_meters": 2.0,
+      "capacity_vehicles_per_hour": 450,
+      "is_bridge": true,
+      "coordinates": [[86.6630, 20.2970], [86.6620, 20.2980], [86.6610, 20.2990]]
+    },
+    {
+      "id": "EDGE-COASTAL-02",
+      "name": "South Estuary Link to Shelter",
+      "source_node": "NODE-ESTUARY-SOUTH",
+      "target_node": "NODE-SHELTER-RAHDAMA",
+      "length_km": 4.2,
+      "min_elevation_meters": 2.1,
+      "capacity_vehicles_per_hour": 900,
+      "is_bridge": false,
+      "coordinates": [[86.6610, 20.2990], [86.6500, 20.2850], [86.6410, 20.2780]]
+    },
+    {
+      "id": "EDGE-DETOUR-01",
+      "name": "Port to Erasama Inland Highway Link",
+      "source_node": "NODE-PARADIP-PORT",
+      "target_node": "NODE-ERASAMA-BYPASS",
+      "length_km": 5.2,
+      "min_elevation_meters": 4.5,
+      "capacity_vehicles_per_hour": 1500,
+      "is_bridge": false,
+      "coordinates": [
+        [86.6680, 20.2920],
+        [86.6350, 20.2680],
+        [86.6020, 20.2450]
+      ]
+    },
+    {
+      "id": "EDGE-DETOUR-02",
+      "name": "Erasama to Kujang Elevated Arterial",
+      "source_node": "NODE-ERASAMA-BYPASS",
+      "target_node": "NODE-KUJANG-CHHAK",
+      "length_km": 4.8,
+      "min_elevation_meters": 4.8,
+      "capacity_vehicles_per_hour": 1500,
+      "is_bridge": false,
+      "coordinates": [
+        [86.6020, 20.2450],
+        [86.5650, 20.2580],
+        [86.5380, 20.2710]
+      ]
+    },
+    {
+      "id": "EDGE-DETOUR-03",
+      "name": "Kujang Chhak to Rahdama High-Ground Feeder",
+      "source_node": "NODE-KUJANG-CHHAK",
+      "target_node": "NODE-SHELTER-RAHDAMA",
+      "length_km": 4.6,
+      "min_elevation_meters": 5.2,
+      "capacity_vehicles_per_hour": 1500,
+      "is_bridge": false,
+      "coordinates": [
+        [86.5380, 20.2710],
+        [86.5890, 20.2750],
+        [86.6410, 20.2780]
+      ]
+    }
+  ],
+  "routing_rules": {
+    "primary_route_id": "ROUTE-PRIMARY-COASTAL",
+    "primary_edge_sequence": ["EDGE-COASTAL-01", "BRG-01", "EDGE-COASTAL-02"],
+    "detour_route_id": "ROUTE-INLAND-DETOUR",
+    "detour_edge_sequence": ["EDGE-DETOUR-01", "EDGE-DETOUR-02", "EDGE-DETOUR-03"],
+    "critical_chokepoint_edge_id": "BRG-01",
+    "submersion_threshold_meters": 2.0
+  }
+}

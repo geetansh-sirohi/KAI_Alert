@@ -1,0 +1,72 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CONTOUR-PARADIP-LOWLANDS",
+        "name": "Paradip Estuary Lowland Zone",
+        "elevation_contour_m": 2.0,
+        "hazard_level": "CRITICAL_SURGE_ZONE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [86.6200, 20.2500],
+            [86.7200, 20.2600],
+            [86.7500, 20.3100],
+            [86.7100, 20.3500],
+            [86.6400, 20.3400],
+            [86.5800, 20.2900],
+            [86.6200, 20.2500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CONTOUR-KUJANG-MARSH",
+        "name": "Kujang Coastal Tidal Marsh",
+        "elevation_contour_m": 3.5,
+        "hazard_level": "MODERATE_SURGE_ZONE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [86.5000, 20.2000],
+            [86.6300, 20.2200],
+            [86.6600, 20.2800],
+            [86.5500, 20.3000],
+            [86.4800, 20.2400],
+            [86.5000, 20.2000]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CONTOUR-ERASAMA-SHORE",
+        "name": "Erasama High Coastal Vulnerability Belt",
+        "elevation_contour_m": 1.5,
+        "hazard_level": "HIGH_SURGE_ZONE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [86.6500, 20.1500],
+            [86.7800, 20.1800],
+            [86.8000, 20.2500],
+            [86.7000, 20.2400],
+            [86.6200, 20.1800],
+            [86.6500, 20.1500]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "census_code": "394821",
+    "name": "Balisahi",
+    "vernacular_name": "ବାଲିସାହି",
+    "latitude": 20.2910,
+    "longitude": 86.6690,
+    "population": 4820,
+    "kutcha_houses": 740,
+    "pucca_houses": 210,
+    "commercial_shops_count": 18,
+    "elevation_meters": 1.4
+  },
+  {
+    "census_code": "394822",
+    "name": "Nuagarh Coastal Basti",
+    "vernacular_name": "ନୂଆଗଡ଼",
+    "latitude": 20.2980,
+    "longitude": 86.6580,
+    "population": 3150,
+    "kutcha_houses": 510,
+    "pucca_houses": 140,
+    "commercial_shops_count": 8,
+    "elevation_meters": 1.7
+  },
+  {
+    "census_code": "394823",
+    "name": "Rahdama Agrarian Ward",
+    "vernacular_name": "ରାହଡାମା",
+    "latitude": 20.2760,
+    "longitude": 86.6380,
+    "population": 6240,
+    "kutcha_houses": 420,
+    "pucca_houses": 790,
+    "commercial_shops_count": 24,
+    "elevation_meters": 5.4
+  },
+  {
+    "census_code": "394824",
+    "name": "Kujang Inland Settlement",
+    "vernacular_name": "କୁଜଙ୍ଗ",
+    "latitude": 20.3320,
+    "longitude": 86.5350,
+    "population": 8920,
+    "kutcha_houses": 380,
+    "pucca_houses": 1450,
+    "commercial_shops_count": 62,
+    "elevation_meters": 6.2
+  },
+  {
+    "census_code": "394825",
+    "name": "Erasama Delta Ward 04",
+    "vernacular_name": "ଏରସମା",
+    "latitude": 20.2420,
+    "longitude": 86.5980,
+    "population": 5410,
+    "kutcha_houses": 880,
+    "pucca_houses": 190,
+    "commercial_shops_count": 12,
+    "elevation_meters": 2.2
+  }
+]

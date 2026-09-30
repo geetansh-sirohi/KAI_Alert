@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <!-- Antenna & Radar Waves -->
+  <path d="M200 120 V65" stroke="currentColor" stroke-width="14" stroke-linecap="round" />
+  <circle cx="200" cy="55" r="16" fill="currentColor" />
+  
+  <!-- Left Radar Waves -->
+  <path d="M165 40 C145 50 145 75 165 85" stroke="currentColor" stroke-width="12" stroke-linecap="round" fill="none" />
+  <path d="M140 25 C110 45 110 85 140 105" stroke="currentColor" stroke-width="12" stroke-linecap="round" fill="none" />
+  
+  <!-- Right Radar Waves -->
+  <path d="M235 40 C255 50 255 75 235 85" stroke="currentColor" stroke-width="12" stroke-linecap="round" fill="none" />
+  <path d="M260 25 C290 45 290 85 260 105" stroke="currentColor" stroke-width="12" stroke-linecap="round" fill="none" />
+
+  <!-- Robot Head Outer Shell -->
+  <path d="M90 200 C90 135 140 115 200 115 C260 115 310 135 310 200 C310 260 260 290 200 290 C140 290 90 260 90 200 Z" fill="currentColor" />
+
+  <!-- Ear Phones -->
+  <rect x="52" y="170" width="32" height="65" rx="16" fill="currentColor" />
+  <rect x="316" y="170" width="32" height="65" rx="16" fill="currentColor" />
+
+  <!-- Face Screen / Visor -->
+  <path d="M112 205 C112 165 148 152 200 152 C252 152 288 165 288 205 C288 245 252 258 200 258 C148 258 112 245 112 205 Z" fill="#ffffff" />
+
+  <!-- Happy Curved Eyes (Arch shape) -->
+  <path d="M142 205 C142 188 168 188 168 205" stroke="#0f172a" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M232 205 C232 188 258 188 258 205" stroke="#0f172a" stroke-width="14" stroke-linecap="round" fill="none" />
+
+  <!-- Neck Collar Arc -->
+  <path d="M90 295 C140 335 260 335 310 295 C335 275 350 240 350 220" stroke="currentColor" stroke-width="16" stroke-linecap="round" fill="none" />
+
+  <!-- Hazard Warning Triangle (Bottom Right) -->
+  <g transform="translate(250, 245)">
+    <path d="M45 5 L85 75 H5 Z" fill="currentColor" stroke="currentColor" stroke-width="8" stroke-linejoin="round" />
+    <path d="M45 28 V48" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+    <circle cx="45" cy="62" r="3.5" fill="#ffffff" />
+  </g>
+</svg>

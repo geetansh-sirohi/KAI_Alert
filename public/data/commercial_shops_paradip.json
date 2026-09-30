@@ -1,0 +1,57 @@
+[
+  {
+    "id": "SHOP-01",
+    "osm_id": 6019281,
+    "name": "Maa Tarini Daily Grocery & Ration Depot",
+    "shop_type": "GROCERY",
+    "latitude": 20.2945,
+    "longitude": 86.6710,
+    "ground_elevation_msl": 1.4,
+    "distance_to_coast_km": 1.2,
+    "inventory_value_inr": 850000
+  },
+  {
+    "id": "SHOP-02",
+    "osm_id": 6019282,
+    "name": "Paradip Central Medical Store (24x7)",
+    "shop_type": "PHARMACY",
+    "latitude": 20.2952,
+    "longitude": 86.6738,
+    "ground_elevation_msl": 1.5,
+    "distance_to_coast_km": 1.1,
+    "inventory_value_inr": 2400000
+  },
+  {
+    "id": "SHOP-03",
+    "osm_id": 6019283,
+    "name": "Kalinga Seafood & Cold Storage Facility",
+    "shop_type": "COLD_STORAGE",
+    "latitude": 20.2820,
+    "longitude": 86.6812,
+    "ground_elevation_msl": 1.1,
+    "distance_to_coast_km": 0.4,
+    "inventory_value_inr": 6500000
+  },
+  {
+    "id": "SHOP-04",
+    "osm_id": 6019284,
+    "name": "Bhubaneswari Grain & Flour Wholesale",
+    "shop_type": "GRAIN_WHOLESALE",
+    "latitude": 20.3010,
+    "longitude": 86.6490,
+    "ground_elevation_msl": 2.2,
+    "distance_to_coast_km": 3.4,
+    "inventory_value_inr": 3100000
+  },
+  {
+    "id": "SHOP-05",
+    "osm_id": 6019285,
+    "name": "Janata Essential Provisions",
+    "shop_type": "GENERAL",
+    "latitude": 20.2890,
+    "longitude": 86.6650,
+    "ground_elevation_msl": 1.3,
+    "distance_to_coast_km": 1.8,
+    "inventory_value_inr": 450000
+  }
+]
