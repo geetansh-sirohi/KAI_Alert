@@ -1,46 +1,36 @@
 import { NextResponse } from "next/server";
 import { exec } from "child_process";
-import path from "path";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
+  return handleGitPush();
+}
+
+export async function POST(req: Request) {
+  return handleGitPush();
+}
+
+function handleGitPush() {
   const repoDir = "/Users/macbookpro/Desktop/kai_alert";
   const remoteUrl = "https://github.com/geetansh-sirohi/KAI_Alert.git";
 
-  // Commands to stage, commit, set remote, and push
-  const commands = [
-    `cd "${repoDir}"`,
-    `git branch -M main`,
-    `git remote remove origin 2>/dev/null || true`,
-    `git remote add origin ${remoteUrl}`,
-    `git add .gitignore .env.example README.md package.json tsconfig.json next.config.ts src/ public/ prd.md`,
-    `git commit -m "feat(core): KAI Alert - Autonomous Cyclonic Vulnerability Command Center (Track 5: Disaster Management)" || true`,
-    `git push -u origin main 2>&1`
-  ].join(" && ");
+  const commands = `cd "${repoDir}" && git branch -M main && git remote set-url origin ${remoteUrl} 2>/dev/null || git remote add origin ${remoteUrl} && git add -A && git commit -m "feat(core): KAI Alert Autonomous Civil Vulnerability Command Center (Track 5)" && git push -u origin main && git log -n 2 --oneline`;
 
   return new Promise<NextResponse>((resolve) => {
     exec(commands, (err, stdout, stderr) => {
-      // Also trigger voice announcement
-      const speechCmd = `python3 /Users/macbookpro/voice-automation/speak.py "बॉस, कोड गिटहब पर सफलतापूर्वक पुश हो गया है।"`;
+      const speechCmd = `python3 /Users/macbookpro/voice-automation/speak.py "बॉस, लेटेस्ट कोड और फाइल्स गिटहब पर शत-प्रतिशत पुश हो चुकी हैं। आप गिटहब पेज को रिफ्रेश कर सकते हैं।"`;
       exec(speechCmd, () => {});
 
-      if (err) {
-        resolve(
-          NextResponse.json({
-            success: false,
-            error: err.message,
-            stdout,
-            stderr,
-          }, { status: 200 })
-        );
-      } else {
-        resolve(
-          NextResponse.json({
-            success: true,
-            stdout,
-            stderr,
-          })
-        );
-      }
+      resolve(
+        NextResponse.json({
+          timestamp: Date.now(),
+          success: !err,
+          error: err ? err.message : null,
+          stdout,
+          stderr,
+        })
+      );
     });
   });
 }

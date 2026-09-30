@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>KAI Alert — Complete 2-Min Hand-Drawn Explainer (Gojo Voiceover)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #FAF7F0;
+        color: #141414;
+        font-family: system-ui, -apple-system, sans-serif;
+        overflow: hidden;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #FAF7F0;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Notebook Sketch Grid & Margin */
+      .notebook-grid {
+        position: absolute;
+        inset: 0;
+        background-image: 
+          linear-gradient(to right, rgba(40, 40, 40, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(40, 40, 40, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+      }
+      .pencil-margin {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 80px;
+        width: 2px;
+        background: rgba(239, 68, 68, 0.25);
+        pointer-events: none;
+      }
+
+      /* Hand-drawn Sketchy Boxes & Cards */
+      .sketch-card {
+        background: #FFFFFF;
+        border: 3.5px solid #141414;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        box-shadow: 6px 8px 0px #141414;
+        position: relative;
+      }
+      .sketch-card-dark {
+        background: #141414;
+        color: #FAF7F0;
+        border: 3.5px solid #141414;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        box-shadow: 6px 8px 0px rgba(0, 0, 0, 0.4);
+        position: relative;
+      }
+      .sketch-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 2.5px solid #141414;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        padding: 6px 18px;
+        font-weight: 800;
+        font-size: 14px;
+        box-shadow: 3px 3px 0px #141414;
+        text-transform: uppercase;
+      }
+      .sketch-badge-amber {
+        background: #FEF3C7;
+        color: #78350F;
+      }
+      .sketch-badge-emerald {
+        background: #D1FAE5;
+        color: #065F46;
+      }
+      .sketch-badge-rose {
+        background: #FFE4E6;
+        color: #881337;
+      }
+      .sketch-badge-cyan {
+        background: #E0F2FE;
+        color: #075985;
+      }
+
+      /* Hand-drawn Typography */
+      .sketch-title {
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        text-align: center;
+        margin: 0;
+        color: #141414;
+      }
+      .sketch-subtitle {
+        font-size: 22px;
+        font-weight: 700;
+        color: #404040;
+        text-align: center;
+        margin-top: 12px;
+      }
+      .mono-tag {
+        font-family: monospace;
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* Hand-drawn SVG Path Styles */
+      .hand-path {
+        fill: none;
+        stroke: #141414;
+        stroke-width: 3.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SVG FILTER DEFS: Continuous Cartoon Boil Filter -->
+    <svg width="0" height="0" style="position: absolute;">
+      <defs>
+        <filter id="hand-drawn-boil" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="1" result="noise">
+            <animate attributeName="seed" values="1;2;3;4;5;6;7;8" dur="0.8s" repeatCount="indefinite" calcMode="discrete"/>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <div
+      id="root"
+      data-composition-id="main"
+      data-width="1920"
+      data-height="1080"
+      data-duration="125.2"
+    >
+      <!-- Background Ambient Paper & Grid -->
+      <div class="notebook-grid"></div>
+      <div class="pencil-margin"></div>
+
+      <!-- AUDIO TRACKS -->
+      <!-- 1. Gojo Complete Voiceover -->
+      <audio id="gojo-vo" data-start="0" data-duration="125.2" data-volume="1" src="assets/gojo_voice.mp3"></audio>
+      <!-- 2. Low Background Beat (ducked so voice shines) -->
+      <audio id="bgm" data-start="0" data-duration="125.2" data-volume="0.14" src="assets/music/track.mp3"></audio>
+      <!-- 3. Tactile Sound Effects -->
+      <audio id="sfx-click" data-start="0.8" data-duration="0.09" data-volume="0.6" src="assets/sfx/click1.ogg"></audio>
+      <audio id="sfx-switch" data-start="25.0" data-duration="0.31" data-volume="0.6" src="assets/sfx/switch1.ogg"></audio>
+      <audio id="sfx-alert" data-start="50.8" data-duration="0.09" data-volume="0.6" src="assets/sfx/click1.ogg"></audio>
+      <audio id="sfx-detour" data-start="76.2" data-duration="0.23" data-volume="0.6" src="assets/sfx/rollover1.ogg"></audio>
+      <audio id="sfx-outro" data-start="105.0" data-duration="0.31" data-volume="0.6" src="assets/sfx/switch1.ogg"></audio>
+
+      <!-- ========================================================================= -->
+      <!-- SCENE 1: THE INTRO & THE COASTAL BLINDSPOT (0.0s - 25.0s)                  -->
+      <!-- ========================================================================= -->
+      <section id="scene-1" class="clip" data-start="0" data-duration="25.0">
+        <div id="s1-content" style="display: flex; flex-direction: column; align-items: center; max-width: 1480px; width: 100%;">
+          <!-- Gojo Voice Intro Pill -->
+          <div id="s1-pill" class="sketch-badge sketch-badge-amber" style="margin-bottom: 20px;">
+            <span style="font-size: 18px;">⚡</span>
+            <span>VOICEOVER: SATORU GOJO • INTRO & THE COASTAL BLINDSPOT</span>
+          </div>
+
+          <h1 id="s1-title" class="sketch-title">
+            CYCLONES STRIKE 7,500 KM OF COASTLINE.
+          </h1>
+          <h2 id="s1-subtitle" class="sketch-subtitle" style="font-size: 26px; color: #881337; margin-top: 8px;">
+            ATMOSPHERIC FORECASTS PREDICT WIND. BUT WHAT ACTUALLY BREAKS?
+          </h2>
+
+          <!-- Hand-Drawn Comparison Board -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; width: 100%; margin-top: 36px;">
+            <!-- Left Card: Weather Warning -->
+            <div id="s1-left-card" class="sketch-card" style="padding: 32px 36px; border-left: 10px solid #2563EB;">
+              <div class="mono-tag" style="color: #1D4ED8; margin-bottom: 8px;">
+                ☁️ STANDARD METEOROLOGY BULLETIN
+              </div>
+              <div style="font-size: 38px; font-weight: 900; line-height: 1.1; margin: 8px 0; color: #141414;">
+                165 KM/H Wind • 950 hPa
+              </div>
+              <div style="font-size: 18px; color: #404040; line-height: 1.4; margin-top: 10px;">
+                Accurate atmospheric prediction, satellite vector tracks, and ocean storm surge estimates.
+              </div>
+              <div style="margin-top: 18px; padding: 12px 16px; background: #EFF6FF; border: 2px dashed #93C5FD; border-radius: 12px; font-size: 15px; font-weight: 700; color: #1E40AF;">
+                ✓ Atmospheric Coordinates & NWP Models
+              </div>
+            </div>
+
+            <!-- Right Card: Civil Defense Reality -->
+            <div id="s1-right-card" class="sketch-card" style="padding: 32px 36px; border-left: 10px solid #BE123C; background: #FFF1F2;">
+              <div class="mono-tag" style="color: #9F1239; margin-bottom: 8px;">
+                ⚠️ THE OPERATIONAL INFORMATION VACUUM
+              </div>
+              <div style="font-size: 38px; font-weight: 900; line-height: 1.1; margin: 8px 0; color: #881337;">
+                Civil Failure Blindspot
+              </div>
+              <div style="font-size: 18px; color: #404040; line-height: 1.4; margin-top: 10px;">
+                Forecasts DO NOT predict which hospital generators flood, which power grids trip, or which bridges drown.
+              </div>
+              <div style="margin-top: 18px; padding: 12px 16px; background: #FFE4E6; border: 2px dashed #FDA4AF; border-radius: 12px; font-size: 15px; font-weight: 800; color: #881337;">
+                ❌ Zero Physical Civil Failure Prediction
+              </div>
+            </div>
+          </div>
+
+          <!-- Hand-Drawn Animated Cyclone Doodle Illustration -->
+          <div id="s1-doodle" style="margin-top: 28px; display: flex; align-items: center; gap: 20px;">
+            <svg width="64" height="64" viewBox="0 0 48 48" class="hand-path" style="filter: url(#hand-drawn-boil);">
+              <path d="M 24 8 C 32 8, 38 14, 38 22 C 38 28, 32 32, 26 32 C 20 32, 16 28, 16 24 C 16 20, 20 18, 24 18 C 26 18, 28 20, 28 22"/>
+              <path d="M 12 18 C 6 22, 6 30, 10 36 C 14 42, 22 44, 30 42"/>
+            </svg>
+            <div style="font-size: 18px; font-weight: 800; color: #141414;">
+              Bay of Bengal & Arabian Sea: 9 Coastal States • 7,516 KM Coastline at Risk
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCENE 2: WHAT IS KAI ALERT / PROJECT CHAKRAVYUHA (25.0s - 50.0s)           -->
+      <!-- ========================================================================= -->
+      <section id="scene-2" class="clip" data-start="25.0" data-duration="25.0">
+        <div id="s2-content" style="display: flex; flex-direction: column; align-items: center; max-width: 1540px; width: 100%;">
+          <div id="s2-pill" class="sketch-badge sketch-badge-cyan" style="margin-bottom: 16px;">
+            <span style="font-size: 18px;">🛡️</span>
+            <span>SYSTEM REVEAL: PROJECT CHAKRAVYUHA</span>
+          </div>
+
+          <h1 id="s2-title" class="sketch-title">
+            ENTER KAI ALERT: 4D VULNERABILITY OS
+          </h1>
+          <h2 id="s2-subtitle" class="sketch-subtitle" style="font-size: 24px; color: #047857; margin-top: 8px;">
+            TURNING RAW VECTOR TRACKS & ELEVATION INTO PHYSICAL FAILURE EQUATIONS
+          </h2>
+
+          <!-- 3 Stacked Architectural Blueprints -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; width: 100%; margin-top: 36px;">
+            <!-- Layer 1 -->
+            <div id="s2-card-1" class="sketch-card" style="padding: 30px;">
+              <div class="mono-tag" style="color: #78350F; background: #FEF3C7; padding: 4px 10px; border-radius: 8px; display: inline-block;">
+                LAYER 01 • SPATIAL TOPOLOGY
+              </div>
+              <div style="font-size: 28px; font-weight: 900; margin: 14px 0 8px 0; color: #141414;">
+                OpenStreetMap Civil Infrastructure
+              </div>
+              <p style="font-size: 16px; color: #404040; line-height: 1.45; margin: 0;">
+                High-density geographic indexing of hospitals, ICU generators, 132/33kV power substations, cell towers, and coastal bridges.
+              </p>
+              <div style="margin-top: 16px; font-family: monospace; font-size: 13px; font-weight: 700; color: #2563EB;">
+                &gt; Overpass QL Ingestion + RBush R-Tree
+              </div>
+            </div>
+
+            <!-- Layer 2 -->
+            <div id="s2-card-2" class="sketch-card" style="padding: 30px; border-color: #047857;">
+              <div class="mono-tag" style="color: #065F46; background: #D1FAE5; padding: 4px 10px; border-radius: 8px; display: inline-block;">
+                LAYER 02 • BARE-EARTH TERRAIN
+              </div>
+              <div style="font-size: 28px; font-weight: 900; margin: 14px 0 8px 0; color: #141414;">
+                SRTM 30M Digital Elevation
+              </div>
+              <p style="font-size: 16px; color: #404040; line-height: 1.45; margin: 0;">
+                Pre-baked vector contour GeoJSON models. Predicts precise inland coastal water ingress centimeter by centimeter.
+              </p>
+              <div style="margin-top: 16px; font-family: monospace; font-size: 13px; font-weight: 700; color: #047857;">
+                &gt; Geodesic Turf.js Buffer Modeling
+              </div>
+            </div>
+
+            <!-- Layer 3 -->
+            <div id="s2-card-3" class="sketch-card" style="padding: 30px; border-color: #BE123C;">
+              <div class="mono-tag" style="color: #881337; background: #FFE4E6; padding: 4px 10px; border-radius: 8px; display: inline-block;">
+                LAYER 03 • PHYSICAL FAILURE
+              </div>
+              <div style="font-size: 28px; font-weight: 900; margin: 14px 0 8px 0; color: #141414;">
+                Deterministic Physics Engine
+              </div>
+              <p style="font-size: 16px; color: #404040; line-height: 1.45; margin: 0;">
+                Zero hallucination. Computes substation wind-shear snapping thresholds and generator submersion using physical equations.
+              </p>
+              <div style="margin-top: 16px; font-family: monospace; font-size: 13px; font-weight: 700; color: #BE123C;">
+                &gt; Web Worker 60 FPS Isolated Computation
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Operating Modes Badge -->
+          <div id="s2-bottom-bar" class="sketch-card-dark" style="margin-top: 28px; width: 100%; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span style="font-size: 24px;">⚙️</span>
+              <span style="font-size: 17px; font-weight: 800; color: #FAF7F0;">
+                PAN-INDIA 2-TIER ARCHITECTURE: Tier-1 Instant Replay Benchmark + Tier-2 Live Sentinel Dynamic Provisioning
+              </span>
+            </div>
+            <div class="sketch-badge sketch-badge-emerald" style="font-size: 12px; padding: 4px 14px;">
+              Active Mode: 60 FPS
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCENE 3: THE PHYSICS OF CIVIL FAILURE (50.0s - 75.0s)                      -->
+      <!-- ========================================================================= -->
+      <section id="scene-3" class="clip" data-start="50.0" data-duration="25.0">
+        <div id="s3-content" style="display: flex; flex-direction: column; align-items: center; max-width: 1540px; width: 100%;">
+          <div id="s3-pill" class="sketch-badge sketch-badge-rose" style="margin-bottom: 16px;">
+            <span style="font-size: 18px;">⚠️</span>
+            <span>CRITICAL INFRASTRUCTURE FAILURE MECHANICS</span>
+          </div>
+
+          <h1 id="s3-title" class="sketch-title">
+            HOW LIFELINE ASSETS ACTUALLY COLLAPSE
+          </h1>
+          <h2 id="s3-subtitle" class="sketch-subtitle" style="font-size: 24px; color: #881337; margin-top: 6px;">
+            PHYSICAL SIMULATION OF THREE DISASTROUS FAILURE CASCADES
+          </h2>
+
+          <!-- Three Detailed Failure Demonstrations -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; width: 100%; margin-top: 32px;">
+            <!-- Failure 1: Hospital ICU Generator -->
+            <div id="s3-fail-1" class="sketch-card" style="padding: 30px; border-top: 8px solid #BE123C;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="mono-tag" style="color: #881337;">1. LIFELINE HEALTHCARE</span>
+                <span class="sketch-badge sketch-badge-rose" style="font-size: 11px; padding: 2px 10px;">Submerged</span>
+              </div>
+              <div style="font-size: 26px; font-weight: 900; margin: 14px 0 6px 0; color: #141414;">
+                Puri District Hospital
+              </div>
+              <div style="background: #FFF1F2; border: 2px dashed #FDA4AF; border-radius: 14px; padding: 14px; margin: 12px 0;">
+                <div style="font-size: 15px; font-weight: 800; color: #881337;">
+                  Basement DG Set at 0.5m Elevation
+                </div>
+                <div style="font-size: 13px; color: #404040; margin-top: 4px;">
+                  Storm surge inundates basement by +40 cm. Backup power fails for ICU ventilators & liquid oxygen vaporizers.
+                </div>
+              </div>
+              <div style="font-size: 14px; font-weight: 700; color: #9F1239;">
+                ⚠️ Predicted 2.5 hours prior to storm landfall!
+              </div>
+            </div>
+
+            <!-- Failure 2: Power Grid Substation -->
+            <div id="s3-fail-2" class="sketch-card" style="padding: 30px; border-top: 8px solid #F59E0B;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="mono-tag" style="color: #78350F;">2. ENERGY DISTRIBUTION</span>
+                <span class="sketch-badge sketch-badge-amber" style="font-size: 11px; padding: 2px 10px;">High Shear</span>
+              </div>
+              <div style="font-size: 26px; font-weight: 900; margin: 14px 0 6px 0; color: #141414;">
+                132/33kV Power Substations
+              </div>
+              <div style="background: #FEF3C7; border: 2px dashed #FDE68A; border-radius: 14px; padding: 14px; margin: 12px 0;">
+                <div style="font-size: 15px; font-weight: 800; color: #78350F;">
+                  Structural Wind Shear Limit: 155 km/h
+                </div>
+                <div style="font-size: 13px; color: #404040; margin-top: 4px;">
+                  165 km/h gusts exceed tower structural elasticity + salt-spray flashover triggers cascading coastal blackout.
+                </div>
+              </div>
+              <div style="font-size: 14px; font-weight: 700; color: #B45309;">
+                ⚡ 14 coastal electrical substations tripped.
+              </div>
+            </div>
+
+            <!-- Failure 3: Cellular Tower Battery Decay -->
+            <div id="s3-fail-3" class="sketch-card" style="padding: 30px; border-top: 8px solid #2563EB;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="mono-tag" style="color: #1D4ED8;">3. TELECOMMUNICATIONS</span>
+                <span class="sketch-badge sketch-badge-cyan" style="font-size: 11px; padding: 2px 10px;">4.5h Decay</span>
+              </div>
+              <div style="font-size: 26px; font-weight: 900; margin: 14px 0 6px 0; color: #141414;">
+                Cellular BTS Base Stations
+              </div>
+              <div style="background: #EFF6FF; border: 2px dashed #BFDBFE; border-radius: 14px; padding: 14px; margin: 12px 0;">
+                <div style="font-size: 15px; font-weight: 800; color: #1E40AF;">
+                  Grid Loss ➔ Battery Backup ➔ Silence
+                </div>
+                <div style="font-size: 13px; color: #404040; margin-top: 4px;">
+                  Tracks the 4.5-hour chemical battery countdown on cellular towers to prevent relief camp communication blackouts.
+                </div>
+              </div>
+              <div style="font-size: 14px; font-weight: 700; color: #1D4ED8;">
+                📡 Dynamic alert dispatched before towers go dark.
+              </div>
+            </div>
+          </div>
+
+          <!-- Hand-Drawn Warning Banner -->
+          <div id="s3-banner" class="sketch-card-dark" style="margin-top: 28px; width: 100%; padding: 18px 32px; display: flex; align-items: center; justify-content: center; gap: 20px;">
+            <span style="font-size: 24px;">🎯</span>
+            <span style="font-size: 20px; font-weight: 900; color: #FAF7F0;">
+              CIVIL AUTHORITIES ACT BEFORE THE STORM HITS — NOT IN THE WAKE OF TRAGEDY
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCENE 4: EVACUATION DETOURS & MULTIMODAL DRONE AI (75.0s - 105.0s)         -->
+      <!-- ========================================================================= -->
+      <section id="scene-4" class="clip" data-start="75.0" data-duration="30.0">
+        <div id="s4-content" style="display: flex; flex-direction: column; align-items: center; max-width: 1540px; width: 100%;">
+          <div id="s4-pill" class="sketch-badge sketch-badge-emerald" style="margin-bottom: 16px;">
+            <span style="font-size: 18px;">🚗</span>
+            <span>INTELLIGENT RESPONSE: SAFE EVACUATION & AI RECON</span>
+          </div>
+
+          <h1 id="s4-title" class="sketch-title">
+            EVACUATION DETOURS & MULTIMODAL DRONE TRIAGE
+          </h1>
+          <h2 id="s4-subtitle" class="sketch-subtitle" style="font-size: 24px; color: #065F46; margin-top: 6px;">
+            DYNAMIC CORRIDOR REROUTING + GEMINI 2.0 VISION AERIAL DAMAGE ASSESSMENT
+          </h2>
+
+          <!-- Two Massive Tactical Columns -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; width: 100%; margin-top: 32px;">
+            <!-- Column 1: Evacuation Routing -->
+            <div id="s4-left-card" class="sketch-card" style="padding: 32px 36px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <span class="mono-tag" style="color: #065F46;">DYNAMIC A* EVACUATION ROUTER</span>
+                <span class="sketch-badge sketch-badge-emerald" style="font-size: 12px;">Active Reroute</span>
+              </div>
+
+              <!-- Map Sketch Simulation -->
+              <div style="background: #FAF7F0; border: 3px solid #141414; border-radius: 18px; padding: 22px; margin-bottom: 18px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 18px; font-weight: 900; color: #881337;">❌ Low Coastal Bridge 4B (NH-316)</span>
+                  <span class="sketch-badge sketch-badge-rose" style="font-size: 12px; padding: 2px 8px;">Drowns at T-2h</span>
+                </div>
+                <div style="font-size: 14px; color: #525252; margin-top: 4px;">
+                  Standard navigation tools route convoys here — trapping thousands in storm floodwaters!
+                </div>
+
+                <div style="margin: 16px 0; border-top: 2px dashed #D4D4D4;"></div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 18px; font-weight: 900; color: #065F46;">✅ Safe High-Ground Detour (SH-9)</span>
+                  <span class="sketch-badge sketch-badge-emerald" style="font-size: 12px; padding: 2px 8px;">+8m Elevation</span>
+                </div>
+                <div style="font-size: 14px; color: #525252; margin-top: 4px;">
+                  KAI Alert reroutes convoys to inland elevated ridges before coastal flooding begins.
+                </div>
+              </div>
+
+              <div style="font-size: 16px; font-weight: 800; color: #141414;">
+                🛡️ Convoys Protected: <span style="color: #047857;">Over 1,420 Civilian Evacuation Buses Saved</span>
+              </div>
+            </div>
+
+            <!-- Column 2: Drone AI & Vernacular Broadcast -->
+            <div id="s4-right-card" class="sketch-card" style="padding: 32px 36px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <span class="mono-tag" style="color: #1D4ED8;">POST-IMPACT AI TRIAGE & BROADCAST</span>
+                <span class="sketch-badge sketch-badge-cyan" style="font-size: 12px;">Gemini 2.0 Flash</span>
+              </div>
+
+              <div style="background: #141414; color: #FAF7F0; border-radius: 18px; padding: 20px; font-family: monospace; font-size: 13.5px; line-height: 1.5; margin-bottom: 18px;">
+                <div style="color: #38BDF8; font-weight: 800;">&gt; AERIAL DRONE MULTIMODAL INGESTION ACTIVE</div>
+                <div style="color: #F87171; margin-top: 6px;">[DAMAGE] Hospital Roof Membrane Shear: 82% Torn</div>
+                <div style="color: #FBBF24; margin-top: 4px;">[ASSESSMENT] Structural Integrity Compromised</div>
+                <div style="color: #4ADE80; margin-top: 8px;">[✓] DISPATCHED VERNACULAR EMERGENCY SMS (&lt;140 Bytes):</div>
+                <div style="color: #FFFFFF; font-size: 12.5px; margin-top: 4px; padding-left: 10px; border-left: 3px solid #F59E0B;">
+                  "ଚକ୍ରବାତ ସତର୍କତା: ତୁରନ୍ତ ଡାକ୍ତରଖାନା ରୋଗୀଙ୍କୁ ସୁରକ୍ଷିତ ସ୍ଥାନକୁ ନିଅନ୍ତୁ"
+                </div>
+              </div>
+
+              <div style="font-size: 16px; font-weight: 800; color: #141414;">
+                📻 Zero-Bandwidth Mesh Radio: <span style="color: #2563EB;">Odia, Hindi & Bengali Broadcasts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- SCENE 5: THE GOJO CONCLUSION & COMMAND OS OUTRO (105.0s - 125.2s)          -->
+      <!-- ========================================================================= -->
+      <section id="scene-5" class="clip" data-start="105.0" data-duration="20.2">
+        <div id="s5-content" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1400px; width: 100%;">
+          <div id="s5-pill" class="sketch-badge sketch-badge-emerald" style="margin-bottom: 20px;">
+            <span style="font-size: 18px;">👑</span>
+            <span>AUTONOMOUS CIVIL DISASTER DEFENSE ENGINE</span>
+          </div>
+
+          <h1 id="s5-heading-1" class="sketch-title" style="font-size: 74px;">
+            DON'T JUST WATCH THE RADAR.
+          </h1>
+          <h1 id="s5-heading-2" class="sketch-title" style="font-size: 74px; color: #047857; margin-top: 6px;">
+            DEFEND THE CIVIL GRID.
+          </h1>
+
+          <!-- Big Outro Showcase Box -->
+          <div id="s5-card" class="sketch-card-dark" style="margin-top: 36px; padding: 40px 72px; display: flex; flex-direction: column; align-items: center; border: 4px solid #F59E0B;">
+            <div style="font-size: 46px; font-weight: 900; letter-spacing: -0.02em; display: flex; align-items: center; gap: 18px;">
+              KAI Alert
+              <span class="sketch-badge sketch-badge-amber" style="font-size: 13px; padding: 6px 18px;">PROJECT CHAKRAVYUHA</span>
+            </div>
+
+            <div style="font-size: 24px; font-weight: 800; color: #FEF3C7; margin-top: 14px; font-style: italic;">
+              "Throughout heaven and earth, we keep the lifeline alive."
+            </div>
+
+            <div style="display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; justify-content: center;">
+              <span class="sketch-badge" style="background:#262626; color:#FAF7F0; font-size:12px; border-color:#525252;">Next.js 15 (Turbopack)</span>
+              <span class="sketch-badge" style="background:#262626; color:#FAF7F0; font-size:12px; border-color:#525252;">Leaflet 4D Canvas</span>
+              <span class="sketch-badge" style="background:#262626; color:#FAF7F0; font-size:12px; border-color:#525252;">Turf.js Geodesics</span>
+              <span class="sketch-badge" style="background:#262626; color:#FAF7F0; font-size:12px; border-color:#525252;">Gemini 2.0 Multimodal AI</span>
+              <span class="sketch-badge" style="background:#262626; color:#FAF7F0; font-size:12px; border-color:#525252;">Deterministic Physics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- GSAP ANIMATION TIMELINE -->
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // ================= SCENE 1 (0.0s - 25.0s) =================
+      tl.from("#s1-pill", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 0.4);
+      tl.from("#s1-title", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 1.0);
+      tl.from("#s1-subtitle", { y: 30, opacity: 0, duration: 0.9, ease: "power3.out" }, 1.8);
+      tl.from("#s1-left-card", { x: -60, opacity: 0, duration: 1.0, ease: "back.out(1.4)" }, 4.5);
+      tl.from("#s1-right-card", { x: 60, opacity: 0, duration: 1.0, ease: "back.out(1.4)" }, 8.0);
+      tl.from("#s1-doodle", { scale: 0.8, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 14.0);
+      tl.to("#s1-content", { y: -40, opacity: 0, duration: 0.8, ease: "power2.in" }, 24.2);
+
+      // ================= SCENE 2 (25.0s - 50.0s) =================
+      tl.from("#s2-pill", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 25.4);
+      tl.from("#s2-title", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 26.0);
+      tl.from("#s2-subtitle", { y: 30, opacity: 0, duration: 0.9, ease: "power3.out" }, 26.8);
+      tl.from("#s2-card-1", { y: 50, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 30.0);
+      tl.from("#s2-card-2", { y: 50, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 34.5);
+      tl.from("#s2-card-3", { y: 50, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 39.0);
+      tl.from("#s2-bottom-bar", { scale: 0.92, opacity: 0, duration: 0.8, ease: "back.out(1.3)" }, 43.5);
+      tl.to("#s2-content", { y: -40, opacity: 0, duration: 0.8, ease: "power2.in" }, 49.2);
+
+      // ================= SCENE 3 (50.0s - 75.0s) =================
+      tl.from("#s3-pill", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 50.4);
+      tl.from("#s3-title", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 51.0);
+      tl.from("#s3-subtitle", { y: 30, opacity: 0, duration: 0.9, ease: "power3.out" }, 51.8);
+      tl.from("#s3-fail-1", { x: -40, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 55.0);
+      tl.from("#s3-fail-2", { y: 40, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 60.5);
+      tl.from("#s3-fail-3", { x: 40, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, 66.0);
+      tl.from("#s3-banner", { scale: 0.95, opacity: 0, duration: 0.8, ease: "back.out(1.4)" }, 70.0);
+      tl.to("#s3-content", { y: -40, opacity: 0, duration: 0.8, ease: "power2.in" }, 74.2);
+
+      // ================= SCENE 4 (75.0s - 105.0s) =================
+      tl.from("#s4-pill", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 75.4);
+      tl.from("#s4-title", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 76.0);
+      tl.from("#s4-subtitle", { y: 30, opacity: 0, duration: 0.9, ease: "power3.out" }, 76.8);
+      tl.from("#s4-left-card", { x: -60, opacity: 0, duration: 1.0, ease: "back.out(1.4)" }, 80.0);
+      tl.from("#s4-right-card", { x: 60, opacity: 0, duration: 1.0, ease: "back.out(1.4)" }, 91.0);
+      tl.to("#s4-content", { y: -40, opacity: 0, duration: 0.8, ease: "power2.in" }, 104.2);
+
+      // ================= SCENE 5 (105.0s - 125.2s) =================
+      tl.from("#s5-pill", { y: -30, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 105.4);
+      tl.from("#s5-heading-1", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 106.0);
+      tl.from("#s5-heading-2", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" }, 107.0);
+      tl.from("#s5-card", { scale: 0.9, opacity: 0, duration: 1.0, ease: "back.out(1.4)" }, 110.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
